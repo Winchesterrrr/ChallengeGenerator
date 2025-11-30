@@ -3,9 +3,8 @@ import random
 
 app = Flask(__name__)
 
-# A list of fun physical or daily challenges
 CHALLENGES = [
-    "Do Aimlabs for 30 minutes",
+    "Play Aimlabs for 30 minutes",
     "Play 10 deathmatches with vandal",
     "Play 10 deathmatches with phantom",
     "Play 10 deathmatches with sheriff",
