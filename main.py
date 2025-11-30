@@ -34,9 +34,12 @@ CHALLENGES = [
 
 @app.route("/home")
 def index():
-    username = session.get('username')
-    challenge = random.choice(CHALLENGES)
-    return render_template("index.html", challenge=challenge, users=users, username=username)
+    if session.get('username') is not None:
+        username = session.get('username')
+        challenge = random.choice(CHALLENGES)
+        return render_template("index.html", challenge=challenge, users=users, username=username)
+    else:
+        return redirect(url_for('login'))
 
 @app.route("/", methods=['GET','POST'])
 def login():
@@ -59,6 +62,11 @@ def addScore():
         if user["username"] == username:
             user["score"] = int(user["score"]) + 1
             save_users(users)
+    return redirect(url_for('index'))
+
+@app.route("/logout")
+def logout():
+    session.pop('username')
     return redirect(url_for('index'))
 
 if __name__ == "__main__":
