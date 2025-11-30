@@ -34,11 +34,30 @@
 <body>
 
 <div class="container">
-    <h1>Your Challenge</h1>
+    <h1>Welcome {{ username }}! <br> This is your challenge</h1>
     <h2>{{ challenge }}</h2>
-    <form method="get" action="/">
-        <button type="submit">New Challenge</button>
+    <form method="get" action="/home">
+        <button type="submit">Next Challenge</button>
     </form>
+    <form action="/add-score">
+        <button>Done</button>
+    </form>
+</div>
+<div class="container">
+    <h1>Users</h1>
+    <table>
+        <tr>
+            <th>Username</th>
+            <th>Score</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.username }}</td>
+            <td>{{ user.score }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
 </div>
 
 </body>
