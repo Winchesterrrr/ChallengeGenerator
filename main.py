@@ -25,6 +25,7 @@ CHALLENGES = [
     "Play 10 deathmatches with a ghost",
     "Kill 25 hard bots in the range",
     "Kill 100 bots in less than 100 seconds",
+    "Kill 100 bots only using jett knives",
     "Play 10 Teamdeathmatch",
     "Play 5 competitive mode",
     "Plant the spike 10 times",
