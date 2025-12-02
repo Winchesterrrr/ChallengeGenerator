@@ -3,60 +3,116 @@
 <head>
     <title>Challenge Generator</title>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            background: #f2f2f2;
             display: flex;
             flex-direction: column;
-            background: #f5f5f5;
-            padding-top: 50px;
             align-items: center;
+            padding: 50px 20px;
         }
+
         .container {
-            background: white;
-            display: block;
-            padding: 20px 40px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            width: 500px;
-            text-align: center;
+            background: linear-gradient(145deg, #ffffff, #e0e0e0);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            padding: 30px 50px;
             margin: 20px;
+            width: 500px;
+            max-width: 90%;
+            text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
+            transition: transform 0.2s;
         }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            color: #34495e;
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
         button {
-            margin: 5px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
+            background: linear-gradient(135deg, #ff8c00, #ff5e00);
             border: none;
-            border-radius: 6px;
-            background: #007bff;
+            border-radius: 10px;
+            padding: 12px 25px;
+            margin: 10px 5px;
+            font-size: 16px;
             color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
         }
+
         button:hover {
-            background: #0056b3;
+            background: linear-gradient(135deg, #ff5e00, #ff8c00);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
         }
-        table{
-            align-items: center;
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #ff8c00;
+            color: white;
+            border-radius: 8px 8px 0 0;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #ffe0b3;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Welcome {{ username }}! <br> This is your challenge</h1>
+    <h1>Welcome {{ username }}!</h1>
     <h2>{{ challenge }}</h2>
-    <form method="get" action="/home">
-        <button type="submit">Next Challenge</button>
-    </form>
-    <form action="/add-score">
-        <button>Challenge Completed</button>
-    </form>
-    <form action="/logout">
-        <button>Logout</button>
-    </form>
+    <div>
+        <form method="get" action="/home" style="display:inline;">
+            <button type="submit">Next Challenge</button>
+        </form>
+        <form action="/add-score" style="display:inline;">
+            <button>Challenge Completed</button>
+        </form>
+        <form action="/logout" style="display:inline;">
+            <button>Logout</button>
+        </form>
+    </div>
 </div>
+
 <div class="container">
     <h1>Users</h1>
     <table>
@@ -71,7 +127,6 @@
         </tr>
         {% endfor %}
     </table>
-    
 </div>
 
 </body>

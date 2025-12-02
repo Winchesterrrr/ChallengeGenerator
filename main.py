@@ -29,6 +29,10 @@ CHALLENGES = [
     "Play 5 competitive mode",
     "Plant the spike 10 times",
     "Defuse the spike 10 times",
+    "Kill 15 hard bots in the range",
+    "Kill 20 hard bots in the range using jett knives",
+    "Master 1 agent in each role",
+    "Win 3 competitive match while leading your team",
     "Kill 5 enemy with an operator"
 ]
 
